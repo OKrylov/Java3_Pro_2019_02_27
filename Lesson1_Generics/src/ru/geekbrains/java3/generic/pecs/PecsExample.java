@@ -1,6 +1,7 @@
 package ru.geekbrains.java3.generic.pecs;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -30,15 +31,21 @@ public class PecsExample<T> {
 
 
     public void test() {
-        List<Pet> src = new ArrayList<>();
-        src.add(new Cat());
+        List<Dog> src = new ArrayList<>();
+//        src.add(new Cat());
         src.add(new Dog());
 
-        List<Pet> dest = new ArrayList<>();
+//        List<Pet> dest = new ArrayList<>();
+        List<Animal> dest = new ArrayList<>();
+        PecsExample.<Pet>copy(src, dest);
 
-        for (Pet p : dest) {
-            p.call();
+        for (Animal p : dest) {
+            p.feed();
         }
+    }
+
+    private static <T> void copy(Collection<? extends T> src, Collection<? super T> dest) {
+        dest.addAll(src);
     }
 
 

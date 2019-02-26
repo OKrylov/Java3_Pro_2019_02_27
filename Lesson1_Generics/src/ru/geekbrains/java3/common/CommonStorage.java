@@ -1,12 +1,12 @@
 package ru.geekbrains.java3.common;
 
-public class IntStorage implements Storage {
+public class CommonStorage implements Storage {
 
-    private Integer[] data;
+    private Object[] data;
     private int currentSize;
 
-    public IntStorage(int size) {
-        this.data = new Integer[size];
+    public CommonStorage(int size) {
+        this.data = new Object[size];
     }
 
     @Override
@@ -19,7 +19,7 @@ public class IntStorage implements Storage {
     }
 
     public void add(Object value, int index) {
-        data[index] = (Integer) value;
+        data[index] = value;
         currentSize++;
     }
 

@@ -1,12 +1,12 @@
 package ru.geekbrains.java3.common;
 
-public class IntStorage implements Storage {
+public class StringStorage implements Storage {
 
-    private Integer[] data;
+    private String[] data;
     private int currentSize;
 
-    public IntStorage(int size) {
-        this.data = new Integer[size];
+    public StringStorage(int size) {
+        this.data = new String[size];
     }
 
     @Override
@@ -19,18 +19,18 @@ public class IntStorage implements Storage {
     }
 
     public void add(Object value, int index) {
-        data[index] = (Integer) value;
+        data[index] = (String) value;
         currentSize++;
     }
 
     public void remove(int index) {
-        data[index] = 0;
+        data[index] = null;
         currentSize--;
     }
 
     public boolean find(Object value) {
         for (int i = 0; i < currentSize; i++) {
-            if (value.equals(data[i])) {
+            if ( value.equals(data[i]) ) {
                 return true;
             }
         }

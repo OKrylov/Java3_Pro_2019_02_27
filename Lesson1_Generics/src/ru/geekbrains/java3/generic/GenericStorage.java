@@ -1,6 +1,6 @@
 package ru.geekbrains.java3.generic;
 
-public interface GenericStorage<E> {
+public interface GenericStorage<E extends Comparable<? super E>> {
 
     void add(E value);
 
@@ -13,4 +13,6 @@ public interface GenericStorage<E> {
     boolean find(E value);
 
     void display();
+
+    Pair<E, Integer> min();
 }
