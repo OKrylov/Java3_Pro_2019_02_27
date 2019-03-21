@@ -1,6 +1,19 @@
 package calculator;
 
+import java.io.IOException;
+
 public class Calculator implements ICalc {
+
+    private NumberProvider numberProvider;
+
+    public Calculator() {
+        this(null);
+    }
+
+    public Calculator(NumberProvider numberProvider) {
+        this.numberProvider = numberProvider;
+    }
+
     @Override
     public int add(int a, int b) {
         return a + b;
@@ -23,6 +36,8 @@ public class Calculator implements ICalc {
 
     @Override
     public int sumFromProvider() {
-        return 0;
+        int a = numberProvider.getNumber();
+        int b = numberProvider.getNumber();
+        return add(a, b);
     }
 }
